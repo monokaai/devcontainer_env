@@ -1,0 +1,23 @@
+{
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnPaste": false,
+  "editor.formatOnType": false,
+  // black
+  "python.formatting.provider": "none",
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter",
+    "editor.tabSize": 4
+  },
+  //isort
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": true
+  },
+  //flake8
+  "python.linting.enabled": true,
+  "python.linting.lintOnSave": true,
+  "python.linting.pylintEnabled": false,
+  "python.linting.flake8Enabled": true,
+  //autoDocstring
+  "autoDocstring.docstringFormat": "google"
+}

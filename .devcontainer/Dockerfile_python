@@ -1,0 +1,24 @@
+FROM mcr.microsoft.com/devcontainers/python:3.10
+LABEL maintainer="monokaai<monokaai@gmail.com>"
+WORKDIR /workspace
+ARG DEBIAN_FRONTEND=noninteractive
+ARG USER=vscode
+RUN apt-get update && apt-get install -y \
+    build-essential --no-install-recommends \
+    libssl-dev \
+    libffi-dev \
+    python3-dev \
+    git \
+    wget \
+    curl \
+    && apt-get clean
+
+ENV POETRY_HOME="/opt/poetry" \
+    POETRY_VERSION=1.6.1
+ENV PATH="$POETRY_HOME/bin::$PATH"
+RUN pip install --upgrade pip \
+    && pip install jupyterlab \
+    && curl -sSL https://install.python-poetry.org | python3 -
+
+CMD ["jupyter", "lab", "--ip=0.0.0.0", "--port=8888", "--allow-root"]
+EXPOSE 8888

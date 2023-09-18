@@ -1,1 +1,0 @@
-OpenAI API GPT-3.5 Truboを利用する場合の環境
